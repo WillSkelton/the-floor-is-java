@@ -15,59 +15,70 @@ public class ToDo {
     public static void choice() {
         Scanner keyboard = new Scanner(System.in);
 
-        System.out.print("Please Specify a name for your list: ");
-        String listName = keyboard.next();
+        // Gets name of list
+        // System.out.print("Please Specify a name for your list: ");
+        String listName = "butt"; // keyboard.next();
 
+        // Makes new List with user input
         List MyToDoList = createList(listName);
 
+        // Shows vaid commands
         System.out.println("Commands:");
         System.out.println("'add': add item to list\n"
             + "'delete': delete item\n"
-            + "'check': check off item\n"
-            + "'exit': exit\n"
             + "'show': shows list\n"
-            + "'length': gets length");
+            + "'length': gets length\n"
+            + "'help': shows commands\n"
+            + "'exit': exit");
 
-
+        // Preps for Command Loop
         String choice = "";
         String itemName = "";
         String itemDesc = "";
 
+        // Command loop
         while(!choice.equalsIgnoreCase("exit")) {
-            System.out.print("What do you want to do?: ");
-            choice = keyboard.next();
+            System.out.print(">>>: ");
+            choice = keyboard.nextLine();
 
+            // add item
             if (choice.equalsIgnoreCase("add")) {
-                
-                System.out.print("What Is the name of this item?: ");
-                itemName = keyboard.next();
 
+                // Get Item Name
+                System.out.print("What is the name of this item?: ");
+                itemName = keyboard.nextLine();
+
+                // Get Item Desc
                 System.out.print("What is this item's description?: ");
-                itemDesc = keyboard.next();
+                itemDesc = keyboard.nextLine();
 
+                // Create new item
                 MyToDoList.addItem(itemName, itemDesc);
+
+                // Reset Choice
+                choice = "";
                 continue;
             }
-            // }
-            // if (choice.equalsIgnoreCase('delete')) {
-            //     MyFirstList.deleteItem();
-            //     continue;
-            // }
-            // if (choice.equalsIgnoreCase('check')) {
-            //     MyFirstList.checkItem();
-            //     continue;
-            // }
-            // if (choice.equalsIgnoreCase('exit')) {
-            //     break;
-            // }
-            // if (choice.equalsIgnoreCase('show')) {
-            //     MyFirstList.showItem();
-            //     continue;
-            // }
-            // if (choice.equalsIgnoreCase('length')) {
-            //     MyFirstList.lengthItem();
-            //     continue;
-            // }
+
+            // Delete Item
+            if (choice.equalsIgnoreCase("delete")) {
+                System.out.print("What Item do you want to delete?");
+                itemName = keyboard.next();
+
+                MyToDoList.deleteItem(itemName);
+                continue;
+            }
+
+            if (choice.equalsIgnoreCase("show")) {
+                MyToDoList.showAllItems();
+                continue;
+            }
+
+            if (choice.equalsIgnoreCase("length")){
+                
+            }
+
+            System.out.println("ERROR: NOT A VALID COMMAND");
 
         }
     }
@@ -76,6 +87,21 @@ public class ToDo {
 
         greeting();
         choice();
+
+        // Scanner keyboard = new Scanner(System.in);
+        //
+        // String num1;
+        // String num2;
+        //
+        // System.out.print("Num1: ");
+        // num1 = keyboard.nextLine();
+        //
+        //
+        // System.out.print("Num2: ");
+        // num2 = keyboard.nextLine();
+        //
+        // System.out.println("Num1: " + num1);
+        // System.out.println("Num2: " + num2);
 
     }
 }

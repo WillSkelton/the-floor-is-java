@@ -15,12 +15,26 @@ public class List {
         this.ToDo = new HashMap<String, String>();
     }
 
-    // Add Item
+    // Add item
     public void addItem(String itemName, String desc) {
-
         ToDo.put(itemName, desc);
         this.length++;
+    }
 
-        System.out.println(ToDo);
+    // Remove item
+    public void deleteItem(String itemName) {
+        ToDo.remove(itemName);
+        this.length--;
+    }
+
+    public void showAllItems() {
+
+        Set <String> keys = ToDo.keySet();
+
+        for(String key : keys) {
+            System.out.println("Item: " + key);
+            System.out.println("Description: " + ToDo.get(key));
+            System.out.println("======================");
+        }
     }
 }
