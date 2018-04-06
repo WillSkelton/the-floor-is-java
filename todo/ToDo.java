@@ -85,6 +85,29 @@ public class ToDo {
                 continue;
             }
 
+            if (choice.equalsIgnoreCase("help")){
+                System.out.println("====================================");
+
+                System.out.println("Commands:");
+                System.out.println("'add': add item to list\n"
+                    + "'delete': delete item\n"
+                    + "'show': shows list\n"
+                    + "'length': gets length\n"
+                    + "'help': shows commands\n"
+                    + "'exit': exit");
+
+                System.out.println("====================================");
+
+                choice = "";
+                continue;
+            }
+
+            if (choice.equalsIgnoreCase("exit")){
+                System.out.println("Bye!");
+                choice = "";
+                break;
+            }
+            
             System.out.println("ERROR: NOT A VALID COMMAND");
 
 

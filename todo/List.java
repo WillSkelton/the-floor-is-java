@@ -32,13 +32,24 @@ public class List {
 
         Set <String> keys = ToDo.keySet();
 
-        System.out.println("========== " + this.name + ": ==========");
+        String header = "========== " + this.name + ": ==========";
+        String footer = "";
+        String divider = "";
+
+        for (int i = 0; i < header.length(); i++) {
+            footer += "=";
+            divider += "-";
+        }
+
+        System.out.println(header);
 
         for(String key : keys) {
             System.out.println("Item: " + key);
             System.out.println("Description: " + ToDo.get(key));
-            System.out.println("======================");
+            System.out.println(divider);
         }
+
+        System.out.println(footer);
     }
 
     public int getLength() {
