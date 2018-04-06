@@ -27,14 +27,21 @@ public class List {
         this.length--;
     }
 
+    // Show all items
     public void showAllItems() {
 
         Set <String> keys = ToDo.keySet();
+
+        System.out.println("========== " + this.name + ": ==========");
 
         for(String key : keys) {
             System.out.println("Item: " + key);
             System.out.println("Description: " + ToDo.get(key));
             System.out.println("======================");
         }
+    }
+
+    public int getLength() {
+        return this.length;
     }
 }

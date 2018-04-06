@@ -16,8 +16,8 @@ public class ToDo {
         Scanner keyboard = new Scanner(System.in);
 
         // Gets name of list
-        // System.out.print("Please Specify a name for your list: ");
-        String listName = "butt"; // keyboard.next();
+        System.out.print("Please Specify a name for your list: ");
+        String listName = keyboard.nextLine();
 
         // Makes new List with user input
         List MyToDoList = createList(listName);
@@ -62,23 +62,31 @@ public class ToDo {
 
             // Delete Item
             if (choice.equalsIgnoreCase("delete")) {
-                System.out.print("What Item do you want to delete?");
-                itemName = keyboard.next();
+                System.out.print("What is the name of the item do you want to delete?: ");
+                itemName = keyboard.nextLine();
 
                 MyToDoList.deleteItem(itemName);
+
+                choice = "";
                 continue;
             }
 
             if (choice.equalsIgnoreCase("show")) {
                 MyToDoList.showAllItems();
+
+                choice = "";
                 continue;
             }
 
             if (choice.equalsIgnoreCase("length")){
-                
+                System.out.println(MyToDoList.getLength());
+
+                choice = "";
+                continue;
             }
 
             System.out.println("ERROR: NOT A VALID COMMAND");
+
 
         }
     }
